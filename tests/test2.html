@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاختبار الشامل: الجوهرة المصرية - حماية الوطن</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="tests.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أنماط إضافية خاصة بالاختبار الثاني */
+        .answers-review {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border-right: 4px solid #2c8c20;
+        }
+        
+        .answers-review h3 {
+            color: #2c8c20;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .answer-item {
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            background-color: white;
+            border-radius: 8px;
+            border-right: 3px solid #ddd;
+        }
+        
+        .answer-item.correct {
+            border-right-color: #2c8c20;
+            background-color: #f0fff0;
+        }
+        
+        .answer-item.incorrect {
+            border-right-color: #d32f2f;
+            background-color: #fff0f0;
+        }
+        
+        .answer-question {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .answer-details {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+        }
+        
+        .user-answer {
+            color: #666;
+        }
+        
+        .correct-answer {
+            color: #2c8c20;
+            font-weight: 600;
+        }
+        
+        .shuffle-notice {
+            background-color: #e3f2fd;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0d47a1;
+            font-size: 0.9em;
+        }
+        
+        /* أنماط التحقق من الإجابات */
+        .unanswered-notice {
+            background-color: #ffeaa7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-right: 4px solid #fdcb6e;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .unanswered-notice-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #e17055;
+        }
+        
+        .unanswered-notice-header i {
+            font-size: 1.5em;
+        }
+        
+        .unanswered-notice h3 {
+            margin: 0;
+            font-size: 1.2em;
+        }
+        
+        .unanswered-notice-list {
+            margin-top: 10px;
+            padding-right: 20px;
+        }
+        
+        .unanswered-notice-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .unanswered-notice-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #fab1a0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .unanswered-notice-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .unanswered-notice-number {
+            background-color: #e74c3c;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .unanswered-notice-question {
+            flex: 1;
+            color: #2d3436;
+        }
+        
+        .unanswered-notice-group {
+            font-size: 0.8em;
+            background-color: #dfe6e9;
+            padding: 3px 10px;
+            border-radius: 12px;
+            color: #636e72;
+        }
+        
+        .go-to-unanswered-btn {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .go-to-unanswered-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        /* أنماط شريط التقدم للأسئلة المجابة */
+        .questions-progress {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .progress-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .progress-count {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .questions-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        
+        .question-status {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .question-status:hover {
+            transform: scale(1.1);
+        }
+        
+        .question-status.answered {
+            background-color: #2ecc71;
+            color: white;
+        }
+        
+        .question-status.current {
+            background-color: #3498db;
+            color: white;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #3498db;
+        }
+        
+        .question-status.unanswered {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .question-status-number {
+            font-size: 0.9em;
+        }
+        
+        /* زر تسليم محسّن */
+        .submit-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn.checking::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+            animation: checkingAnimation 1.5s infinite;
+        }
+        
+        @keyframes checkingAnimation {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* رسالة تذكير عند محاولة التسليم */
+        .reminder-message {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-10px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .reminder-message i {
+            color: #f39c12;
+        }
+        
+        /* تنبيه الأسئلة غير المجابة */
+        .fullscreen-alert {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .unanswered-alert {
+            background-color: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s ease;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .alert-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #f39c12;
+        }
+        
+        .alert-header i {
+            font-size: 2em;
+        }
+        
+        .alert-header h3 {
+            margin: 0;
+            color: #d35400;
+        }
+        
+        .unanswered-alert p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .unanswered-list {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .unanswered-list h4 {
+            margin-top: 0;
+            color: #333;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .unanswered-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .unanswered-list li {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: white;
+            border-radius: 8px;
+            border-right: 4px solid #f39c12;
+            transition: all 0.3s ease;
+        }
+        
+        .unanswered-list li:hover {
+            background-color: #fff8e1;
+            transform: translateX(-5px);
+        }
+        
+        .unanswered-list li strong {
+            color: #e74c3c;
+        }
+        
+        .group-tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            margin-right: 10px;
+            float: left;
+        }
+        
+        .alert-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .alert-actions button {
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .unanswered-highlight {
+            animation: highlightPulse 1.5s ease infinite;
+            border: 2px solid #e74c3c !important;
+            border-radius: 10px;
+        }
+        
+        @keyframes highlightPulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+        
+        @media (max-width: 768px) {
+            .unanswered-alert {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .alert-actions {
+                flex-direction: column;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .question-group {
+            margin-bottom: 15px;
+        }
+        
+        .group-badge {
+            display: inline-block;
+            background-color: #4a6fa5;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        /* تحسينات لأزرار النتائج */
+        .results-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+        }
+        
+        .btn, .btn-outline {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .btn {
+            background-color: #2c8c20;
+            color: white;
+            border: none;
+        }
+        
+        .btn:hover {
+            background-color: #247a1a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #2c8c20;
+            border: 2px solid #2c8c20;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(44, 140, 32, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* تحسينات لرسائل النتائج */
+        .message {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .message.success {
+            background-color: #f0fff0;
+            border-right: 4px solid #2c8c20;
+            color: #2c8c20;
+        }
+        
+        .message.good {
+            background-color: #fff9e6;
+            border-right: 4px solid #f39c12;
+            color: #d35400;
+        }
+        
+        .message.improve {
+            background-color: #ffeaea;
+            border-right: 4px solid #e74c3c;
+            color: #c0392b;
+        }
+        
+        .message i {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        /* تحسينات للهواتف المحمولة */
+        @media (max-width: 768px) {
+            .results-actions {
+                flex-direction: column;
+            }
+            
+            .btn, .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>حماية الوطن</h1>
+                </a>
+            </div>
+            <div class="test-info">
+                <div class="test-timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">15:00</span>
+                </div>
+                <div class="test-progress">
+                    <span>السؤال <span id="current-question">1</span> من 20</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- محتوى الاختبار -->
+    <main class="test-content">
+        <div class="test-header">
+            <h1><i class="fas fa-trophy"></i> الاختبار الشامل: الجوهرة المصرية</h1>
+            <p>اختبار شامل لقياس مدى استيعابك لقصة الشهيد محمد أبو شقرة (الجوهرة المصرية)</p>
+        </div>
+
+        <!-- إشعار ترتيب عشوائي -->
+        <div class="shuffle-notice">
+            <i class="fas fa-random"></i>
+            <span>ملاحظة: ترتيب الأسئلة عشوائي في كل مرة تقوم فيها بتحميل الاختبار</span>
+        </div>
+
+        <!-- شريط تقدم الأسئلة -->
+        <div class="questions-progress" id="questions-progress">
+            <div class="progress-header">
+                <div class="progress-title">حالة الأسئلة</div>
+                <div class="progress-count" id="answered-count">0 / 20</div>
+            </div>
+            <div class="questions-grid" id="questions-grid">
+                <!-- سيتم ملؤه بالجافاسكريبت -->
+            </div>
+        </div>
+
+        <!-- أسئلة الاختبار -->
+        <form id="test-form">
+            <!-- سيتم إضافة الأسئلة ديناميكياً بالجافاسكريبت -->
+        </form>
+
+        <!-- نتائج الاختبار مع مراجعة الإجابات -->
+        <div class="test-results hidden" id="test-results">
+            <div class="results-card">
+                <h2><i class="fas fa-medal"></i> نتائج الاختبار الشامل</h2>
+                
+                <div class="results-score">
+                    <div class="score-circle">
+                        <div class="score-value" id="final-score">0</div>
+                        <div class="score-label">من 100</div>
+                    </div>
+                    
+                    <div class="score-details">
+                        <div class="score-stat">
+                            <span class="stat-label">الإجابات الصحيحة:</span>
+                            <span class="stat-value" id="correct-count">0</span>
+                        </div>
+                        
+                        <div class="score-stat">
+                            <span class="stat-label">الإجابات الخاطئة:</span>
+                            <span class="stat-value" id="wrong-count">0</span>
+                        </div>
+                        
+                        <div class="score-stat">
+                            <span class="stat-label">النسبة المئوية:</span>
+                            <span class="stat-value" id="percentage">0%</span>
+                        </div>
+                        
+                        <div class="score-stat">
+                            <span class="stat-label">الوقت المستغرق:</span>
+                            <span class="stat-value" id="time-taken">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-message" id="results-message">
+                    <!-- سيتم ملؤه بالجافاسكريبت -->
+                </div>
+                
+                <!-- قسم مراجعة الإجابات -->
+                <div class="answers-review hidden" id="answers-review">
+                    <h3><i class="fas fa-clipboard-check"></i> مراجعة الإجابات</h3>
+                    <div id="answers-container">
+                        <!-- سيتم ملؤه بالجافاسكريبت -->
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn-outline" onclick="toggleAnswersReview()">
+                        <i class="fas fa-search"></i> مراجعة الإجابات
+                    </button>
+                    
+                    <button class="btn" onclick="retryTest()">
+                        <i class="fas fa-redo"></i> إعادة الاختبار
+                    </button>
+                    
+                    <button class="btn" onclick="goToHome()">
+                        <i class="fas fa-home"></i> العودة للرئيسية
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="test-footer">
+        <div class="footer-content">
+            <p>الاختبار الشامل - قصة الشهيد محمد أبو شقرة (الجوهرة المصرية)</p>
+            <p>الصف الثاني الإعدادي - تحت إشراف الأستاذة إسلام محمد</p>
+            <p>© 2023 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <!-- جافاسكريبت للاختبار -->
+    <script>
+        // تعريف الأسئلة مع إجاباتها الصحيحة
+        const testQuestions = [
+            {
+                id: 1,
+                text: "في أي محافظة نشأ الشهيد محمد أبو شقرة؟",
+                options: [
+                    { value: "a", text: "القاهرة" },
+                    { value: "b", text: "الفيوم" },
+                    { value: "c", text: "سيناء" }
+                ],
+                correctAnswer: "b",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 2,
+                text: "ما الكلية التي تخرج فيها البطل؟",
+                options: [
+                    { value: "a", text: "الكلية الحربية" },
+                    { value: "b", text: "كلية الشرطة" },
+                    { value: "c", text: "كلية الحقوق" }
+                ],
+                correctAnswer: "b",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 3,
+                text: "لقب الشهيد بـ 'الشبح' بسبب:",
+                options: [
+                    { value: "a", text: "قوته البدنية الضخمة" },
+                    { value: "b", text: "قدرته العالية على التخفي" },
+                    { value: "c", text: "حبه للعمل في الظلام" }
+                ],
+                correctAnswer: "b",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 4,
+                text: "ما التاريخ الدقيق لاستشهاده؟",
+                options: [
+                    { value: "a", text: "25 يناير 2011" },
+                    { value: "b", text: "30 يونيو 2013" },
+                    { value: "c", text: "9 يونيو 2013" }
+                ],
+                correctAnswer: "c",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 5,
+                text: "أين ارتقى محمد أبو شقرة شهيداً؟",
+                options: [
+                    { value: "a", text: "في مدينة العريش" },
+                    { value: "b", text: "في جبل الحلال" },
+                    { value: "c", text: "في مدينة رفح" }
+                ],
+                correctAnswer: "a",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 6,
+                text: "كان الشهيد يتعامل مع زملائه بـ:",
+                options: [
+                    { value: "a", text: "حزم وشدة" },
+                    { value: "b", text: "تواضع ومشاركة" },
+                    { value: "c", text: "رسمية تامة" }
+                ],
+                correctAnswer: "b",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 7,
+                text: "كيف ساعد الشهيد الأسر البسيطة؟",
+                options: [
+                    { value: "a", text: "في صمت وإشفاق" },
+                    { value: "b", text: "من خلال الجمعيات الرسمية" },
+                    { value: "c", text: "بالإعلان عن تبرعاته" }
+                ],
+                correctAnswer: "a",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 8,
+                text: "ما الواجب الذي آمن به أبناء الوطن كما ورد في النص؟",
+                options: [
+                    { value: "a", text: "جمع الثروات" },
+                    { value: "b", text: "السفر للخارج" },
+                    { value: "c", text: "حماية الأرض وصون الكرامة" }
+                ],
+                correctAnswer: "c",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 9,
+                text: "نعت النص قوى الإرهاب بـ:",
+                options: [
+                    { value: "a", text: "القوية" },
+                    { value: "b", text: "الغادرة" },
+                    { value: "c", text: "المتراجعة" }
+                ],
+                correctAnswer: "b",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 10,
+                text: "نشأ الشهيد في بيت يقدر:",
+                options: [
+                    { value: "a", text: "المال والجاه" },
+                    { value: "b", text: "الشرف والواجب" },
+                    { value: "c", text: "العلم فقط" }
+                ],
+                correctAnswer: "b",
+                group: "الفهم والاستيعاب",
+                points: 5
+            },
+            {
+                id: 11,
+                text: "معنى كلمة 'حافل' هو:",
+                options: [
+                    { value: "a", text: "قديم" },
+                    { value: "b", text: "ممتلئ وزاخر" },
+                    { value: "c", text: "منتهٍ" }
+                ],
+                correctAnswer: "b",
+                group: "اللغويات والمعاني",
+                points: 5
+            },
+            {
+                id: 12,
+                text: "مضاد كلمة 'صَوْن':",
+                options: [
+                    { value: "a", text: "حماية" },
+                    { value: "b", text: "إهدار وتضييع" },
+                    { value: "c", text: "بناء" }
+                ],
+                correctAnswer: "b",
+                group: "اللغويات والمعاني",
+                points: 5
+            },
+            {
+                id: 13,
+                text: "معنى 'وَهَبُوا' في قوله (وهبوا حياتهم):",
+                options: [
+                    { value: "a", text: "منحوا وقدموا" },
+                    { value: "b", text: "باعوا" },
+                    { value: "c", text: "خسروا" }
+                ],
+                correctAnswer: "a",
+                group: "اللغويات والمعاني",
+                points: 5
+            },
+            {
+                id: 14,
+                text: "عبارة 'منقطع النظير' تدل على:",
+                options: [
+                    { value: "a", text: "الانقطاع عن العمل" },
+                    { value: "b", text: "التميز الذي لا مثيل له" },
+                    { value: "c", text: "ضعف الرؤية" }
+                ],
+                correctAnswer: "b",
+                group: "اللغويات والمعاني",
+                points: 5
+            },
+            {
+                id: 15,
+                text: "مرادف 'ارتقى' في سياق استشهاد البطل:",
+                options: [
+                    { value: "a", text: "صعد للمنزل" },
+                    { value: "b", text: "مات" },
+                    { value: "c", text: "نال الشهادة وارتفعت منزلته" }
+                ],
+                correctAnswer: "c",
+                group: "اللغويات والمعاني",
+                points: 5
+            },
+            {
+                id: 16,
+                text: "الكتابة الصحيحة لكلمة 'كفاءة' هي:",
+                options: [
+                    { value: "a", text: "كفاأة" },
+                    { value: "b", text: "كفاءة" },
+                    { value: "c", text: "كفائة" }
+                ],
+                correctAnswer: "b",
+                group: "القواعد الإملائية",
+                points: 5
+            },
+            {
+                id: 17,
+                text: "ترسم الهمزة في كلمة 'بطيء' على:",
+                options: [
+                    { value: "a", text: "السطر" },
+                    { value: "b", text: "نبرة (ياء)" },
+                    { value: "c", text: "الألف" }
+                ],
+                correctAnswer: "b",
+                group: "القواعد الإملائية",
+                points: 5
+            },
+            {
+                id: 18,
+                text: "عند تنوين كلمة 'جزء' بالفتح تصبح:",
+                options: [
+                    { value: "a", text: "جزءً" },
+                    { value: "b", text: "جزءًا" },
+                    { value: "c", text: "جزأً" }
+                ],
+                correctAnswer: "b",
+                group: "القواعد الإملائية",
+                points: 5
+            },
+            {
+                id: 19,
+                text: "لماذا كتبت الهمزة في كلمة 'جاءوا' على السطر؟",
+                options: [
+                    { value: "a", text: "لأنها مضمومة وبعدها واو مد ولا تتصل بما قبلها" },
+                    { value: "b", text: "لأنها مفتوحة" },
+                    { value: "c", text: "لأنها في آخر الكلمة" }
+                ],
+                correctAnswer: "a",
+                group: "القواعد الإملائية",
+                points: 5
+            },
+            {
+                id: 20,
+                text: "القاعدة الصحيحة للهمزة المتوسطة المفتوحة بعد ألف المد:",
+                options: [
+                    { value: "a", text: "تكتب على نبرة" },
+                    { value: "b", text: "تكتب على السطر" },
+                    { value: "c", text: "تكتب على الواو" }
+                ],
+                correctAnswer: "b",
+                group: "القواعد الإملائية",
+                points: 5
+            }
+        ];
+
+        // دالة لترتيب الأسئلة عشوائياً
+        function shuffleQuestions() {
+            // نسخة من الأسئلة للترتيب العشوائي
+            const shuffledQuestions = [...testQuestions];
+            
+            // خوارزمية Fisher-Yates للخلط العشوائي
+            for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+            }
+            
+            return shuffledQuestions;
+        }
+
+        // متغيرات الاختبار
+        let currentQuestion = 1;
+        const totalQuestions = testQuestions.length;
+        let timeLeft = 15 * 60; // 15 دقائق بالثواني
+        let timerInterval;
+        let startTime;
+        let shuffledQuestions = [];
+        let userAnswers = {};
+
+        // تهيئة الاختبار
+        function initTest() {
+            // خلط الأسئلة عشوائياً
+            shuffledQuestions = shuffleQuestions();
+            
+            // عرض الأسئلة
+            renderQuestions();
+            
+            startTime = new Date();
+            startTimer();
+            
+            // تحديث عرض السؤال الحالي
+            updateQuestionDisplay();
+            
+            // إعداد مستمعي الأحداث
+            document.getElementById('next-btn').addEventListener('click', nextQuestion);
+            document.getElementById('prev-btn').addEventListener('click', prevQuestion);
+            document.getElementById('submit-test').addEventListener('click', submitTest);
+            
+            // التحقق من الإجابات المحفوظة
+            loadSavedAnswers();
+            
+            // تهيئة شريط تقدم الأسئلة
+            updateQuestionsProgress();
+            
+            // تحديث شريط التقدم عند تغيير الإجابة
+            document.addEventListener('change', function(event) {
+                if (event.target.type === 'radio') {
+                    // تأخير قليلاً للتأكد من حفظ الإجابة أولاً
+                    setTimeout(() => {
+                        saveAnswer(currentQuestion);
+                    }, 100);
+                }
+            });
+        }
+
+        // عرض الأسئلة في النموذج
+        function renderQuestions() {
+            const form = document.getElementById('test-form');
+            form.innerHTML = '';
+            
+            // إضافة الأسئلة إلى النموذج
+            shuffledQuestions.forEach((question, index) => {
+                const questionNumber = index + 1;
+                const questionHTML = `
+                    <div class="test-question ${questionNumber === 1 ? 'active' : ''}" id="question${questionNumber}">
+                        <div class="question-header">
+                            <h3>السؤال ${questionNumber}</h3>
+                            <span class="question-points">${question.points} نقاط</span>
+                        </div>
+                        
+                        <div class="question-group">
+                            <span class="group-badge">${question.group}</span>
+                        </div>
+                        
+                        <div class="question-text">
+                            <p>${question.text}</p>
+                        </div>
+                        
+                        <div class="question-options">
+                            ${question.options.map(option => `
+                                <label class="question-option">
+                                    <input type="radio" name="q${question.id}" value="${option.value}" required>
+                                    <span class="option-text">${option.text}</span>
+                                </label>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                form.insertAdjacentHTML('beforeend', questionHTML);
+            });
+            
+            // إضافة أزرار التنقل
+            const navigationHTML = `
+                <div class="test-navigation">
+                    <button type="button" class="nav-btn" id="prev-btn" disabled>
+                        <i class="fas fa-arrow-right"></i> السابق
+                    </button>
+                    
+                    <button type="button" class="nav-btn" id="next-btn">
+                        التالي <i class="fas fa-arrow-left"></i>
+                    </button>
+                    
+                    <button type="button" class="submit-btn" id="submit-test">
+                        <i class="fas fa-paper-plane"></i> إنهاء الاختبار
+                    </button>
+                </div>
+            `;
+            
+            form.insertAdjacentHTML('beforeend', navigationHTML);
+            
+            // إعادة تعيين مستمعي الأحداث بعد إعادة التصيير
+            document.getElementById('next-btn').addEventListener('click', nextQuestion);
+            document.getElementById('prev-btn').addEventListener('click', prevQuestion);
+            document.getElementById('submit-test').addEventListener('click', submitTest);
+        }
+
+        // بدء المؤقت
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert('انتهى الوقت! سيتم تصحيح الاختبار تلقائياً.');
+                    completeTestSubmission();
+                }
+            }, 1000);
+        }
+
+        // تحديث عرض المؤقت
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // دالة لتحديث شريط تقدم الأسئلة
+        function updateQuestionsProgress() {
+            const grid = document.getElementById('questions-grid');
+            if (!grid) return;
+            
+            grid.innerHTML = '';
+            
+            let answeredCount = 0;
+            
+            shuffledQuestions.forEach((question, index) => {
+                const questionNumber = index + 1;
+                const questionElement = document.getElementById(`question${questionNumber}`);
+                const selectedOption = questionElement ? questionElement.querySelector('input[type="radio"]:checked') : null;
+                const isAnswered = !!selectedOption;
+                const isCurrent = currentQuestion === questionNumber;
+                
+                if (isAnswered) answeredCount++;
+                
+                const statusElement = document.createElement('div');
+                statusElement.className = `question-status ${isAnswered ? 'answered' : 'unanswered'} ${isCurrent ? 'current' : ''}`;
+                statusElement.title = `السؤال ${questionNumber}: ${isAnswered ? 'مجاب' : 'غير مجاب'}`;
+                statusElement.innerHTML = `<span class="question-status-number">${questionNumber}</span>`;
+                
+                // عند النقر على السؤال، ننتقل إليه
+                statusElement.addEventListener('click', () => {
+                    currentQuestion = questionNumber;
+                    updateQuestionDisplay();
+                });
+                
+                grid.appendChild(statusElement);
+            });
+            
+            // تحديث العداد
+            const answeredCountElement = document.getElementById('answered-count');
+            if (answeredCountElement) {
+                answeredCountElement.textContent = `${answeredCount} / ${totalQuestions}`;
+            }
+        }
+
+        // الانتقال للسؤال التالي
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                saveAnswer(currentQuestion);
+                currentQuestion++;
+                updateQuestionDisplay();
+            }
+        }
+
+        // العودة للسؤال السابق
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                saveAnswer(currentQuestion);
+                currentQuestion--;
+                updateQuestionDisplay();
+            }
+        }
+
+        // تحديث عرض السؤال الحالي
+        function updateQuestionDisplay() {
+            // إخفاء جميع الأسئلة
+            document.querySelectorAll('.test-question').forEach(question => {
+                question.classList.remove('active');
+            });
+            
+            // إظهار السؤال الحالي
+            document.getElementById(`question${currentQuestion}`).classList.add('active');
+            
+            // تحديث رقم السؤال الحالي
+            document.getElementById('current-question').textContent = currentQuestion;
+            
+            // تحديث حالة أزرار التنقل
+            document.getElementById('prev-btn').disabled = currentQuestion === 1;
+            document.getElementById('next-btn').disabled = currentQuestion === totalQuestions;
+            document.getElementById('next-btn').innerHTML = 
+                currentQuestion === totalQuestions ? 'إنهاء <i class="fas fa-flag-checkered"></i>' : 'التالي <i class="fas fa-arrow-left"></i>';
+            
+            // تحميل الإجابة المحفوظة لهذا السؤال
+            loadQuestionAnswer(currentQuestion);
+            
+            // تحديث شريط تقدم الأسئلة
+            updateQuestionsProgress();
+        }
+
+        // حفظ إجابة السؤال
+        function saveAnswer(questionNumber) {
+            const questionElement = document.getElementById(`question${questionNumber}`);
+            const selectedOption = questionElement.querySelector('input[type="radio"]:checked');
+            
+            if (selectedOption) {
+                // الحصول على معرف السؤال الفعلي من الأسئلة المخلوطة
+                const actualQuestionId = shuffledQuestions[questionNumber - 1].id;
+                userAnswers[actualQuestionId] = selectedOption.value;
+                localStorage.setItem(`test2-q${actualQuestionId}`, selectedOption.value);
+                
+                // تحديث شريط التقدم
+                updateQuestionsProgress();
+            }
+        }
+
+        // تحميل الإجابة المحفوظة
+        function loadQuestionAnswer(questionNumber) {
+            // الحصول على معرف السؤال الفعلي من الأسئلة المخلوطة
+            const actualQuestionId = shuffledQuestions[questionNumber - 1].id;
+            const savedAnswer = localStorage.getItem(`test2-q${actualQuestionId}`);
+            
+            if (savedAnswer) {
+                const questionElement = document.getElementById(`question${questionNumber}`);
+                const optionToSelect = questionElement.querySelector(`input[value="${savedAnswer}"]`);
+                
+                if (optionToSelect) {
+                    optionToSelect.checked = true;
+                }
+            }
+        }
+
+        // تحميل جميع الإجابات المحفوظة
+        function loadSavedAnswers() {
+            for (let i = 1; i <= totalQuestions; i++) {
+                loadQuestionAnswer(i);
+            }
+        }
+
+        // تصحيح الاختبار مع التحقق من الإجابات المكتملة
+        function submitTest() {
+            // التحقق من إكمال جميع الأسئلة أولاً
+            const unansweredQuestions = checkUnansweredQuestions();
+            
+            if (unansweredQuestions.length > 0) {
+                showUnansweredAlert(unansweredQuestions);
+                return; // لا نكمل التصحيح
+            }
+            
+            // إذا كانت جميع الأسئلة مجابة، نكمل التصحيح
+            completeTestSubmission();
+        }
+
+        // دالة للتحقق من الأسئلة غير المجابة
+        function checkUnansweredQuestions() {
+            const unanswered = [];
+            
+            shuffledQuestions.forEach((question, index) => {
+                const questionNumber = index + 1;
+                const questionElement = document.getElementById(`question${questionNumber}`);
+                const selectedOption = questionElement.querySelector('input[type="radio"]:checked');
+                
+                if (!selectedOption) {
+                    unanswered.push({
+                        number: questionNumber,
+                        question: question.text,
+                        group: question.group
+                    });
+                }
+            });
+            
+            return unanswered;
+        }
+
+        // دالة لعرض تنبيه بالأسئلة غير المجابة
+        function showUnansweredAlert(unansweredQuestions) {
+            // إنشاء قائمة بالأسئلة غير المجابة
+            let alertMessage = `<div class="unanswered-alert">
+                <div class="alert-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>يوجد أسئلة لم تتم الإجابة عليها</h3>
+                </div>
+                <p>يرجى الإجابة على جميع الأسئلة قبل تسليم الاختبار.</p>
+                <div class="unanswered-list">
+                    <h4>الأسئلة المتبقية:</h4>
+                    <ul>`;
+            
+            unansweredQuestions.forEach(item => {
+                alertMessage += `<li>
+                    <strong>السؤال ${item.number}:</strong> ${item.question.substring(0, 50)}...
+                    <span class="group-tag">${item.group}</span>
+                </li>`;
+            });
+            
+            alertMessage += `</ul></div>
+                <div class="alert-actions">
+                    <button class="btn" onclick="goToFirstUnanswered(${unansweredQuestions[0].number})">
+                        <i class="fas fa-arrow-right"></i> الانتقال للسؤال الأول غير مجاب
+                    </button>
+                    <button class="btn-outline" onclick="closeAlert()">
+                        <i class="fas fa-times"></i> إغلاق
+                    </button>
+                </div>
+            </div>`;
+            
+            // إنشاء عنصر التنبيه
+            const alertElement = document.createElement('div');
+            alertElement.id = 'unanswered-alert';
+            alertElement.className = 'fullscreen-alert';
+            alertElement.innerHTML = alertMessage;
+            
+            // إضافة التنبيه إلى الصفحة
+            document.body.appendChild(alertElement);
+        }
+
+        // دالة للانتقال إلى أول سؤال غير مجاب
+        function goToFirstUnanswered(questionNumber) {
+            // إغلاق التنبيه
+            closeAlert();
+            
+            // الانتقال إلى السؤال المطلوب
+            currentQuestion = questionNumber;
+            updateQuestionDisplay();
+            
+            // إضافة تأثير تنبيه للسؤال
+            highlightUnansweredQuestion(questionNumber);
+        }
+
+        // دالة لإضافة تأثير تنبيه للسؤال غير المجاب
+        function highlightUnansweredQuestion(questionNumber) {
+            const questionElement = document.getElementById(`question${questionNumber}`);
+            
+            // إضافة فئة للإبراز
+            questionElement.classList.add('unanswered-highlight');
+            
+            // إزالة الفئة بعد 3 ثوانٍ
+            setTimeout(() => {
+                questionElement.classList.remove('unanswered-highlight');
+            }, 3000);
+            
+            // تمرير للعنصر
+            questionElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // دالة لإغلاق التنبيه
+        function closeAlert() {
+            const alertElement = document.getElementById('unanswered-alert');
+            if (alertElement) {
+                alertElement.remove();
+            }
+        }
+
+        // دالة لإكمال تسليم الاختبار بعد التحقق
+        function completeTestSubmission() {
+            clearInterval(timerInterval);
+            
+            // حساب الوقت المستغرق
+            const endTime = new Date();
+            const timeTaken = Math.floor((endTime - startTime) / 1000);
+            const minutesTaken = Math.floor(timeTaken / 60);
+            const secondsTaken = timeTaken % 60;
+            
+            // حساب النتيجة
+            let correctCount = 0;
+            let wrongCount = 0;
+            
+            // تخزين تفاصيل الإجابات للمراجعة
+            const answerDetails = [];
+            
+            shuffledQuestions.forEach(question => {
+                const userAnswer = userAnswers[question.id];
+                const isCorrect = userAnswer === question.correctAnswer;
+                
+                if (userAnswer) {
+                    if (isCorrect) {
+                        correctCount++;
+                    } else {
+                        wrongCount++;
+                    }
+                } else {
+                    wrongCount++; // عدم الإجابة يعتبر خطأ
+                }
+                
+                // تخزين تفاصيل الإجابة للمراجعة
+                answerDetails.push({
+                    question: question.text,
+                    userAnswer: userAnswer,
+                    correctAnswer: question.correctAnswer,
+                    isCorrect: isCorrect,
+                    options: question.options,
+                    group: question.group
+                });
+            });
+            
+            // حساب النتيجة النهائية
+            const score = correctCount * 5; // كل سؤال = 5 نقاط
+            const percentage = Math.round((correctCount / totalQuestions) * 100);
+            
+            // عرض النتائج
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('correct-count').textContent = correctCount;
+            document.getElementById('wrong-count').textContent = wrongCount;
+            document.getElementById('percentage').textContent = `${percentage}%`;
+            document.getElementById('time-taken').textContent = 
+                `${minutesTaken}:${secondsTaken.toString().padStart(2, '0')}`;
+            
+            // عرض رسالة النتيجة
+            const resultsMessage = document.getElementById('results-message');
+            if (percentage >= 90) {
+                resultsMessage.innerHTML = `
+                    <div class="message success">
+                        <i class="fas fa-trophy"></i>
+                        <h3>ممتاز! درجة رائعة</h3>
+                        <p>أحسنت! لقد أظهرت فهماً ممتازاً لقصة الشهيد محمد أبو شقرة (الجوهرة المصرية).</p>
+                    </div>
+                `;
+            } else if (percentage >= 70) {
+                resultsMessage.innerHTML = `
+                    <div class="message good">
+                        <i class="fas fa-star"></i>
+                        <h3>جيد جداً</h3>
+                        <p>أداء جيد، يمكنك مراجعة الإجابات لتحسين النتيجة.</p>
+                    </div>
+                `;
+            } else {
+                resultsMessage.innerHTML = `
+                    <div class="message improve">
+                        <i class="fas fa-book"></i>
+                        <h3>يحتاج للتحسين</h3>
+                        <p>ننصحك بمراجعة قصة الشهيد محمد أبو شقرة (الجوهرة المصرية) مرة أخرى.</p>
+                    </div>
+                `;
+            }
+            
+            // إنشاء عرض مراجعة الإجابات
+            createAnswersReview(answerDetails);
+            
+            // إخفاء الأسئلة وإظهار النتائج
+            document.getElementById('test-form').classList.add('hidden');
+            document.getElementById('test-results').classList.remove('hidden');
+            
+            // حفظ النتيجة في التخزين المحلي
+            saveTestResults(score, percentage, correctCount);
+        }
+
+        // إنشاء عرض مراجعة الإجابات
+        function createAnswersReview(answerDetails) {
+            const answersContainer = document.getElementById('answers-container');
+            answersContainer.innerHTML = '';
+            
+            answerDetails.forEach((detail, index) => {
+                const questionNumber = index + 1;
+                const userAnswerText = detail.userAnswer ? 
+                    detail.options.find(opt => opt.value === detail.userAnswer)?.text || 'غير معروف' : 
+                    'لم تتم الإجابة';
+                
+                const correctAnswerText = detail.options.find(opt => opt.value === detail.correctAnswer)?.text || 'غير معروف';
+                
+                const answerItem = document.createElement('div');
+                answerItem.className = `answer-item ${detail.isCorrect ? 'correct' : 'incorrect'}`;
+                answerItem.innerHTML = `
+                    <div class="answer-question">${questionNumber}. ${detail.question}</div>
+                    <div class="answer-details">
+                        <div class="user-answer">إجابتك: <strong>${userAnswerText}</strong></div>
+                        <div class="correct-answer">الإجابة الصحيحة: <strong>${correctAnswerText}</strong></div>
+                    </div>
+                    <div class="answer-group" style="margin-top: 5px; font-size: 0.8em; color: #666;">${detail.group}</div>
+                `;
+                
+                answersContainer.appendChild(answerItem);
+            });
+        }
+
+        // تبديل عرض مراجعة الإجابات
+        function toggleAnswersReview() {
+            const answersReview = document.getElementById('answers-review');
+            if (answersReview.classList.contains('hidden')) {
+                answersReview.classList.remove('hidden');
+            } else {
+                answersReview.classList.add('hidden');
+            }
+        }
+
+        // حفظ نتائج الاختبار
+        function saveTestResults(score, percentage, correctCount) {
+            const testResults = {
+                score: score,
+                percentage: percentage,
+                correctAnswers: correctCount,
+                totalQuestions: totalQuestions,
+                timestamp: new Date().toISOString(),
+                testName: 'الاختبار الشامل: الجوهرة المصرية'
+            };
+            
+            localStorage.setItem('test2-results', JSON.stringify(testResults));
+            
+            // تحديث تقدم المستخدم
+            if (percentage >= 70) {
+                localStorage.setItem('test2-completed', 'true');
+                updateUserProgress();
+            }
+        }
+
+        // تحديث تقدم المستخدم
+        function updateUserProgress() {
+            // يمكنك إضافة منطق لتحديث تقدم المستخدم هنا
+            console.log('تم تحديث تقدم المستخدم للاختبار الشامل');
+        }
+
+        // إعادة الاختبار
+        function retryTest() {
+            // مسح الإجابات المحفوظة
+            for (let i = 1; i <= totalQuestions; i++) {
+                localStorage.removeItem(`test2-q${i}`);
+            }
+            
+            // إعادة تحميل الصفحة
+            location.reload();
+        }
+
+        // العودة للصفحة الرئيسية
+        function goToHome() {
+            window.location.href = '../index.html';
+        }
+
+        // تهيئة الاختبار عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', initTest);
+        
+        // التحذير عند محاولة الخروج من صفحة الاختبار
+        window.addEventListener('beforeunload', function(e) {
+            if (!document.getElementById('test-results').classList.contains('hidden')) {
+                return undefined;
+            }
+            
+            e.preventDefault();
+            e.returnValue = 'لديك اختبار قيد التقدم. هل أنت متأكد من أنك تريد المغادرة؟';
+            return e.returnValue;
+        });
+    </script>
+</body>
+</html>

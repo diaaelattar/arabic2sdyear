@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار الدرس الأول: الوَعْي حِمَاية - حماية الوطن</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="tests.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>حماية الوطن</h1>
+                </a>
+            </div>
+            <div class="test-info">
+                <div class="test-timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer">10:00</span>
+                </div>
+                <div class="test-progress">
+                    <span>السؤال <span id="current-question">1</span> من 10</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- محتوى الاختبار -->
+    <main class="test-content">
+        <div class="test-header">
+            <h1><i class="fas fa-clipboard-check"></i> اختبار الدرس الأول: "الوَعْي حِمَاية"</h1>
+            <p>اختبار قصير لقياس مدى استيعابك للدرس الأول</p>
+        </div>
+
+        <!-- أسئلة الاختبار -->
+        <form id="test-form">
+            <!-- السؤال 1 -->
+            <div class="test-question active" id="question1">
+                <div class="question-header">
+                    <h3>السؤال 1</h3>
+                    <span class="question-points">5 نقاط</span>
+                </div>
+                
+                <div class="question-text">
+                    <p>ما هو أقوى سلاح لحماية الوطن حسب النص المسموع في الدرس الأول؟</p>
+                </div>
+                
+                <div class="question-options">
+                    <label class="question-option">
+                        <input type="radio" name="q1" value="1" required>
+                        <span class="option-text">السلاح النووي</span>
+                    </label>
+                    
+                    <label class="question-option">
+                        <input type="radio" name="q1" value="2">
+                        <span class="option-text">الوعي الوطني</span>
+                    </label>
+                    
+                    <label class="question-option">
+                        <input type="radio" name="q1" value="3">
+                        <span class="option-text">الجيش الحديث</span>
+                    </label>
+                    
+                    <label class="question-option">
+                        <input type="radio" name="q1" value="4">
+                        <span class="option-text">الاقتصاد القوي</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- السؤال 2 -->
+            <div class="test-question" id="question2">
+                <div class="question-header">
+                    <h3>السؤال 2</h3>
+                    <span class="question-points">5 نقاط</span>
+                </div>
+                
+                <div class="question-text">
+                    <p>ما معنى كلمة "الوَعْي" في النص؟</p>
+                </div>
+                
+                <div class="question-options">
+                    <label class="question-option">
+                        <input type="radio" name="q2" value="1" required>
+                        <span class="option-text">الإدراك والفهم</span>
+                    </label>
+                    
+                    <label class="question-option">
+                        <input type="radio" name="q2" value="2">
+                        <span class="option-text">النوم والراحة</span>
+                    </label>
+                    
+                    <label class="question-option">
+                        <input type="radio" name="q2" value="3">
+                        <span class="option-text">النسيان والإهمال</span>
+                    </label>
+                    
+                    <label class="question-option">
+                        <input type="radio" name="q2" value="4">
+                        <span class="option-text">الغضب والانفعال</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- أضف المزيد من الأسئلة هنا (حتى 10 أسئلة) -->
+            
+            <div class="test-navigation">
+                <button type="button" class="nav-btn" id="prev-btn" disabled>
+                    <i class="fas fa-arrow-right"></i> السابق
+                </button>
+                
+                <button type="button" class="nav-btn" id="next-btn">
+                    التالي <i class="fas fa-arrow-left"></i>
+                </button>
+                
+                <button type="button" class="submit-btn" id="submit-test">
+                    <i class="fas fa-paper-plane"></i> إنهاء الاختبار
+                </button>
+            </div>
+        </form>
+
+        <!-- نتائج الاختبار -->
+        <div class="test-results hidden" id="test-results">
+            <div class="results-card">
+                <h2><i class="fas fa-medal"></i> نتائج الاختبار</h2>
+                
+                <div class="results-score">
+                    <div class="score-circle">
+                        <div class="score-value" id="final-score">0</div>
+                        <div class="score-label">من 50</div>
+                    </div>
+                    
+                    <div class="score-details">
+                        <div class="score-stat">
+                            <span class="stat-label">الإجابات الصحيحة:</span>
+                            <span class="stat-value" id="correct-count">0</span>
+                        </div>
+                        
+                        <div class="score-stat">
+                            <span class="stat-label">الإجابات الخاطئة:</span>
+                            <span class="stat-value" id="wrong-count">0</span>
+                        </div>
+                        
+                        <div class="score-stat">
+                            <span class="stat-label">النسبة المئوية:</span>
+                            <span class="stat-value" id="percentage">0%</span>
+                        </div>
+                        
+                        <div class="score-stat">
+                            <span class="stat-label">الوقت المستغرق:</span>
+                            <span class="stat-value" id="time-taken">0:00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-message" id="results-message">
+                    <!-- سيتم ملؤه بالجافاسكريبت -->
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn-outline" onclick="reviewTest()">
+                        <i class="fas fa-search"></i> مراجعة الإجابات
+                    </button>
+                    
+                    <button class="btn" onclick="goToNextTest()">
+                        <i class="fas fa-arrow-right"></i> الانتقال للاختبار التالي
+                    </button>
+                    
+                    <button class="btn" onclick="goToHome()">
+                        <i class="fas fa-home"></i> العودة للرئيسية
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="test-footer">
+        <div class="footer-content">
+            <p>اختبار الدرس الأول - الوحدة الأولى: حماية الوطن</p>
+            <p>الصف الثاني الإعدادي - تحت إشراف الأستاذة إسلام محمد</p>
+            <p>© 2023 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <!-- جافاسكريبت للاختبار -->
+    <script>
+        // إجابات الاختبار
+        const testAnswers = {
+            q1: '2', // الوعي الوطني
+            q2: '1'  // الإدراك والفهم
+            // أضف بقية الإجابات هنا
+        };
+        
+        // متغيرات الاختبار
+        let currentQuestion = 1;
+        const totalQuestions = 10;
+        let timeLeft = 10 * 60; // 10 دقائق بالثواني
+        let timerInterval;
+        let startTime;
+        
+        // تهيئة الاختبار
+        function initTest() {
+            startTime = new Date();
+            startTimer();
+            
+            // تحديث عرض السؤال الحالي
+            updateQuestionDisplay();
+            
+            // إعداد مستمعي الأحداث
+            document.getElementById('next-btn').addEventListener('click', nextQuestion);
+            document.getElementById('prev-btn').addEventListener('click', prevQuestion);
+            document.getElementById('submit-test').addEventListener('click', submitTest);
+            
+            // التحقق من الإجابات المحفوظة
+            loadSavedAnswers();
+        }
+        
+        // بدء المؤقت
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert('انتهى الوقت! سيتم تصحيح الاختبار تلقائياً.');
+                    submitTest();
+                }
+            }, 1000);
+        }
+        
+        // تحديث عرض المؤقت
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            document.getElementById('timer').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // الانتقال للسؤال التالي
+        function nextQuestion() {
+            if (currentQuestion < totalQuestions) {
+                saveAnswer(currentQuestion);
+                currentQuestion++;
+                updateQuestionDisplay();
+            }
+        }
+        
+        // العودة للسؤال السابق
+        function prevQuestion() {
+            if (currentQuestion > 1) {
+                saveAnswer(currentQuestion);
+                currentQuestion--;
+                updateQuestionDisplay();
+            }
+        }
+        
+        // تحديث عرض السؤال الحالي
+        function updateQuestionDisplay() {
+            // إخفاء جميع الأسئلة
+            document.querySelectorAll('.test-question').forEach(question => {
+                question.classList.remove('active');
+            });
+            
+            // إظهار السؤال الحالي
+            document.getElementById(`question${currentQuestion}`).classList.add('active');
+            
+            // تحديث رقم السؤال الحالي
+            document.getElementById('current-question').textContent = currentQuestion;
+            
+            // تحديث حالة أزرار التنقل
+            document.getElementById('prev-btn').disabled = currentQuestion === 1;
+            document.getElementById('next-btn').disabled = currentQuestion === totalQuestions;
+            document.getElementById('next-btn').textContent = 
+                currentQuestion === totalQuestions ? 'إنهاء' : 'التالي <i class="fas fa-arrow-left"></i>';
+            
+            // تحميل الإجابة المحفوظة لهذا السؤال
+            loadQuestionAnswer(currentQuestion);
+        }
+        
+        // حفظ إجابة السؤال
+        function saveAnswer(questionNumber) {
+            const questionElement = document.getElementById(`question${questionNumber}`);
+            const selectedOption = questionElement.querySelector('input[type="radio"]:checked');
+            
+            if (selectedOption) {
+                localStorage.setItem(`test1-q${questionNumber}`, selectedOption.value);
+            }
+        }
+        
+        // تحميل الإجابة المحفوظة
+        function loadQuestionAnswer(questionNumber) {
+            const savedAnswer = localStorage.getItem(`test1-q${questionNumber}`);
+            
+            if (savedAnswer) {
+                const questionElement = document.getElementById(`question${questionNumber}`);
+                const optionToSelect = questionElement.querySelector(`input[value="${savedAnswer}"]`);
+                
+                if (optionToSelect) {
+                    optionToSelect.checked = true;
+                }
+            }
+        }
+        
+        // تحميل جميع الإجابات المحفوظة
+        function loadSavedAnswers() {
+            for (let i = 1; i <= totalQuestions; i++) {
+                loadQuestionAnswer(i);
+            }
+        }
+        
+        // تصحيح الاختبار
+        function submitTest() {
+            clearInterval(timerInterval);
+            
+            // حساب الوقت المستغرق
+            const endTime = new Date();
+            const timeTaken = Math.floor((endTime - startTime) / 1000);
+            const minutesTaken = Math.floor(timeTaken / 60);
+            const secondsTaken = timeTaken % 60;
+            
+            // حساب النتيجة
+            let correctCount = 0;
+            let wrongCount = 0;
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const savedAnswer = localStorage.getItem(`test1-q${i}`);
+                const correctAnswer = testAnswers[`q${i}`];
+                
+                if (savedAnswer === correctAnswer) {
+                    correctCount++;
+                } else if (savedAnswer) {
+                    wrongCount++;
+                } else {
+                    wrongCount++; // عدم الإجابة يعتبر خطأ
+                }
+            }
+            
+            // حساب النتيجة النهائية
+            const score = correctCount * 5; // كل سؤال = 5 نقاط
+            const percentage = Math.round((correctCount / totalQuestions) * 100);
+            
+            // عرض النتائج
+            document.getElementById('final-score').textContent = score;
+            document.getElementById('correct-count').textContent = correctCount;
+            document.getElementById('wrong-count').textContent = wrongCount;
+            document.getElementById('percentage').textContent = `${percentage}%`;
+            document.getElementById('time-taken').textContent = 
+                `${minutesTaken}:${secondsTaken.toString().padStart(2, '0')}`;
+            
+            // عرض رسالة النتيجة
+            const resultsMessage = document.getElementById('results-message');
+            if (percentage >= 90) {
+                resultsMessage.innerHTML = `
+                    <div class="message success">
+                        <i class="fas fa-trophy"></i>
+                        <h3>ممتاز! درجة رائعة</h3>
+                        <p>أحسنت! لقد أظهرت فهماً ممتازاً للدرس الأول.</p>
+                    </div>
+                `;
+            } else if (percentage >= 70) {
+                resultsMessage.innerHTML = `
+                    <div class="message good">
+                        <i class="fas fa-star"></i>
+                        <h3>جيد جداً</h3>
+                        <p>أداء جيد، يمكنك المراجعة لتحسين النتيجة.</p>
+                    </div>
+                `;
+            } else {
+                resultsMessage.innerHTML = `
+                    <div class="message improve">
+                        <i class="fas fa-book"></i>
+                        <h3>يحتاج للتحسين</h3>
+                        <p>ننصحك بمراجعة الدرس الأول مرة أخرى.</p>
+                    </div>
+                `;
+            }
+            
+            // إخفاء الأسئلة وإظهار النتائج
+            document.getElementById('test-form').classList.add('hidden');
+            document.getElementById('test-results').classList.remove('hidden');
+            
+            // حفظ النتيجة في التخزين المحلي
+            saveTestResults(score, percentage, correctCount);
+        }
+        
+        // حفظ نتائج الاختبار
+        function saveTestResults(score, percentage, correctCount) {
+            const testResults = {
+                score: score,
+                percentage: percentage,
+                correctAnswers: correctCount,
+                totalQuestions: totalQuestions,
+                timestamp: new Date().toISOString()
+            };
+            
+            localStorage.setItem('test1-results', JSON.stringify(testResults));
+            
+            // تحديث تقدم المستخدم
+            if (percentage >= 70) {
+                localStorage.setItem('test1-completed', 'true');
+                updateUserProgress();
+            }
+        }
+        
+        // تحديث تقدم المستخدم
+        function updateUserProgress() {
+            // يمكنك إضافة منطق لتحديث تقدم المستخدم هنا
+            console.log('تم تحديث تقدم المستخدم');
+        }
+        
+        // مراجعة الإجابات
+        function reviewTest() {
+            // يمكنك إضافة منطق لعرض الإجابات الصحيحة والخاطئة
+            alert('ميزة المراجعة قيد التطوير');
+        }
+        
+        // الانتقال للاختبار التالي
+        function goToNextTest() {
+            window.location.href = 'test2.html';
+        }
+        
+        // العودة للصفحة الرئيسية
+        function goToHome() {
+            window.location.href = '../index.html';
+        }
+        
+        // تهيئة الاختبار عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', initTest);
+        
+        // التحذير عند محاولة الخروج من صفحة الاختبار
+        window.addEventListener('beforeunload', function(e) {
+            if (!document.getElementById('test-results').classList.contains('hidden')) {
+                return undefined;
+            }
+            
+            e.preventDefault();
+            e.returnValue = 'لديك اختبار قيد التقدم. هل أنت متأكد من أنك تريد المغادرة؟';
+            return e.returnValue;
+        });
+    </script>
+</body>
+</html>

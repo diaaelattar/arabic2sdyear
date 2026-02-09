@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمارين المفردات واللغة - حماية الوطن</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="exercises.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- شريط التنقل -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>حماية الوطن</h1>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+                <li><a href="../index.html#exercises"><i class="fas fa-pen"></i> التمارين</a></li>
+                <li><a href="vocabulary.html" class="active"><i class="fas fa-language"></i> المفردات</a></li>
+                <li><a href="reading.html"><i class="fas fa-book-reader"></i> الفهم القرائي</a></li>
+                <li><a href="grammar.html"><i class="fas fa-pencil-alt"></i> القواعد</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- محتوى التمارين -->
+    <main class="exercises-content">
+        <div class="exercises-header">
+            <h1><i class="fas fa-language"></i> تمارين المفردات واللغة</h1>
+            <p>تدرب على مفردات الوحدة الأولى وأتقن استخدام الكلمات في الجمل</p>
+        </div>
+
+        <!-- تمرين 1: معاني الكلمات -->
+        <section class="exercise-section">
+            <div class="exercise-card large">
+                <div class="exercise-header">
+                    <h2><i class="fas fa-puzzle-piece"></i> تمرين 1: معاني الكلمات</h2>
+                    <span class="exercise-points">10 نقاط</span>
+                </div>
+                
+                <div class="exercise-instructions">
+                    <p>اختر المعنى الصحيح للكلمات التالية من الوحدة الأولى:</p>
+                </div>
+                
+                <div class="multiple-choice-grid">
+                    <div class="mc-question">
+                        <p><strong>1. "حَافِلٌ" تعني:</strong></p>
+                        <div class="mc-options">
+                            <label class="mc-option">
+                                <input type="radio" name="q1" value="1">
+                                <span class="option-text">مملوء ومليء</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q1" value="2">
+                                <span class="option-text">فارغ وخالٍ</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q1" value="3">
+                                <span class="option-text">كبير وعظيم</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mc-question">
+                        <p><strong>2. "تَمَاذِجَ" تعني:</strong></p>
+                        <div class="mc-options">
+                            <label class="mc-option">
+                                <input type="radio" name="q2" value="1">
+                                <span class="option-text">نماذج وأمثلة</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q2" value="2">
+                                <span class="option-text">أشخاص عاديين</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q2" value="3">
+                                <span class="option-text">أماكن وأوطان</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mc-question">
+                        <p><strong>3. "صَوْنَ" تعني:</strong></p>
+                        <div class="mc-options">
+                            <label class="mc-option">
+                                <input type="radio" name="q3" value="1">
+                                <span class="option-text">حفظ وحماية</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q3" value="2">
+                                <span class="option-text">تخريب وتهديم</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q3" value="3">
+                                <span class="option-text">بيع وشراء</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="mc-question">
+                        <p><strong>4. "الْوَطَنِيُّ" تعني:</strong></p>
+                        <div class="mc-options">
+                            <label class="mc-option">
+                                <input type="radio" name="q4" value="1">
+                                <span class="option-text">الخاص بالوطن</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q4" value="2">
+                                <span class="option-text">الخاص بالأجانب</span>
+                            </label>
+                            <label class="mc-option">
+                                <input type="radio" name="q4" value="3">
+                                <span class="option-text">الخاص بالعائلة</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="submit-btn" onclick="submitVocabularyExercise()">
+                    <i class="fas fa-paper-plane"></i> تقديم الإجابات
+                </button>
+                
+                <div id="vocabulary-feedback" class="feedback hidden"></div>
+            </div>
+        </section>
+
+        <!-- تمرين 2: المرادفات والمتضادات -->
+        <section class="exercise-section">
+            <div class="exercise-card large">
+                <div class="exercise-header">
+                    <h2><i class="fas fa-sync-alt"></i> تمرين 2: المرادفات والمتضادات</h2>
+                    <span class="exercise-points">15 نقطة</span>
+                </div>
+                
+                <div class="exercise-instructions">
+                    <p>اختر المرادف أو المتضاد الصحيح للكلمات التالية:</p>
+                </div>
+                
+                <div class="synonym-antonym-exercise">
+                    <div class="sa-question">
+                        <p><strong>المرادف لكلمة "مُضِيِّةٍ":</strong></p>
+                        <div class="sa-options">
+                            <button class="sa-option" onclick="selectSynonym(this, 'مُشْرِقَةٍ')">مُشْرِقَةٍ</button>
+                            <button class="sa-option" onclick="selectSynonym(this, 'مُظْلِمَةٍ')">مُظْلِمَةٍ</button>
+                            <button class="sa-option" onclick="selectSynonym(this, 'صَغِيرَةٍ')">صَغِيرَةٍ</button>
+                        </div>
+                    </div>
+                    
+                    <div class="sa-question">
+                        <p><strong>المتضاد لكلمة "الْجَفَاف":</strong></p>
+                        <div class="sa-options">
+                            <button class="sa-option" onclick="selectAntonym(this, 'الْخِصْب')">الْخِصْب</button>
+                            <button class="sa-option" onclick="selectAntonym(this, 'الْقَحْط')">الْقَحْط</button>
+                            <button class="sa-option" onclick="selectAntonym(this, 'الصَّحْرَاء')">الصَّحْرَاء</button>
+                        </div>
+                    </div>
+                    
+                    <div class="sa-question">
+                        <p><strong>المرادف لكلمة "الْبَطَل":</strong></p>
+                        <div class="sa-options">
+                            <button class="sa-option" onclick="selectSynonym(this, 'الْفَارِس')">الْفَارِس</button>
+                            <button class="sa-option" onclick="selectSynonym(this, 'الْجَبَان')">الْجَبَان</button>
+                            <button class="sa-option" onclick="selectSynonym(this, 'الْعَدُو')">الْعَدُو</button>
+                        </div>
+                    </div>
+                    
+                    <div class="sa-question">
+                        <p><strong>المتضاد لكلمة "الْأَمْن":</strong></p>
+                        <div class="sa-options">
+                            <button class="sa-option" onclick="selectAntonym(this, 'الْخَوْف')">الْخَوْف</button>
+                            <button class="sa-option" onclick="selectAntonym(this, 'السَّلَام')">السَّلَام</button>
+                            <button class="sa-option" onclick="selectAntonym(this, 'الْهَدْء')">الْهَدْء</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="submit-btn" onclick="submitSynonymExercise()">
+                    <i class="fas fa-paper-plane"></i> تقديم الإجابات
+                </button>
+                
+                <div id="synonym-feedback" class="feedback hidden"></div>
+            </div>
+        </section>
+
+        <!-- تمرين 3: الجمع والمفرد -->
+        <section class="exercise-section">
+            <div class="exercise-card large">
+                <div class="exercise-header">
+                    <h2><i class="fas fa-layer-group"></i> تمرين 3: الجمع والمفرد</h2>
+                    <span class="exercise-points">20 نقطة</span>
+                </div>
+                
+                <div class="exercise-instructions">
+                    <p>أدخل الجمع أو المفرد الصحيح للكلمات التالية:</p>
+                </div>
+                
+                <div class="plural-singular-exercise">
+                    <div class="ps-question">
+                        <p>مفرد "الشُّهَدَاء" هو: <input type="text" id="ps1" placeholder="أدخل الإجابة"></p>
+                    </div>
+                    
+                    <div class="ps-question">
+                        <p>جمع "الْبَطَل" هو: <input type="text" id="ps2" placeholder="أدخل الإجابة"></p>
+                    </div>
+                    
+                    <div class="ps-question">
+                        <p>مفرد "التَّمَاذِج" هو: <input type="text" id="ps3" placeholder="أدخل الإجابة"></p>
+                    </div>
+                    
+                    <div class="ps-question">
+                        <p>جمع "الْحِصْن" هو: <input type="text" id="ps4" placeholder="أدخل الإجابة"></p>
+                    </div>
+                </div>
+                
+                <button class="submit-btn" onclick="submitPluralExercise()">
+                    <i class="fas fa-paper-plane"></i> تقديم الإجابات
+                </button>
+                
+                <div id="plural-feedback" class="feedback hidden"></div>
+            </div>
+        </section>
+
+        <!-- نتائج التمارين -->
+        <section class="results-section">
+            <div class="results-card">
+                <h3><i class="fas fa-chart-line"></i> نتائج التمارين</h3>
+                <div class="results-stats">
+                    <div class="result-stat">
+                        <div class="stat-value" id="total-score">0</div>
+                        <div class="stat-label">النقاط الكلية</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-value" id="correct-answers">0</div>
+                        <div class="stat-label">الإجابات الصحيحة</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-value" id="percentage">0%</div>
+                        <div class="stat-label">النسبة المئوية</div>
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button class="btn-outline" onclick="resetExercises()">
+                        <i class="fas fa-redo"></i> إعادة المحاولة
+                    </button>
+                    <button class="btn" onclick="saveProgress()">
+                        <i class="fas fa-save"></i> حفظ النتائج
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- التذييل -->
+    <footer class="exercises-footer">
+        <div class="footer-content">
+            <p>تمارين الوحدة الأولى - حماية الوطن</p>
+            <p>الصف الثاني الإعدادي - تحت إشراف الأستاذة إسلام محمد</p>
+            <p>© 2023 جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <!-- أنماط خاصة بالتمارين -->
+    <style>
+        .exercises-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .exercises-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #3B82F6, #2D4FA8);
+            color: white;
+            border-radius: var(--border-radius);
+        }
+        
+        .exercises-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .exercises-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .exercise-section {
+            margin-bottom: 3rem;
+        }
+        
+        .exercise-card.large {
+            padding: 2.5rem;
+        }
+        
+        .exercise-instructions {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-right: 4px solid var(--primary-color);
+            font-size: 1.1rem;
+        }
+        
+        .multiple-choice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .mc-question {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .mc-question p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+        
+        .mc-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .mc-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .mc-option:hover {
+            background: #f9fafb;
+            border-color: var(--primary-color);
+        }
+        
+        .mc-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .option-text {
+            flex: 1;
+            font-size: 1rem;
+        }
+        
+        .synonym-antonym-exercise {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .sa-question {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .sa-question p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+        }
+        
+        .sa-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .sa-option {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #f9fafb;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        .sa-option:hover {
+            background: #f3f4f6;
+            border-color: var(--primary-color);
+        }
+        
+        .sa-option.selected {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        .plural-singular-exercise {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .ps-question {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .ps-question p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .ps-question input {
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Cairo', sans-serif;
+            width: 200px;
+            transition: var(--transition);
+        }
+        
+        .ps-question input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--secondary-color), #0da67e);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 2rem auto;
+            font-family: 'Cairo', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .feedback {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            animation: slideDown 0.3s ease;
+        }
+        
+        .feedback.correct {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+        
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+        
+        .results-section {
+            margin-top: 3rem;
+        }
+        
+        .results-card {
+            background: linear-gradient(135deg, var(--primary-color), #2D4FA8);
+            color: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .results-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .result-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .results-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .exercises-footer {
+            text-align: center;
+            padding: 2rem;
+            background: #f9fafb;
+            margin-top: 3rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        @media (max-width: 768px) {
+            .multiple-choice-grid,
+            .synonym-antonym-exercise,
+            .plural-singular-exercise {
+                grid-template-columns: 1fr;
+            }
+            
+            .ps-question p {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .ps-question input {
+                width: 100%;
+            }
+            
+            .results-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .results-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- جافاسكريبت للتمارين -->
+    <script>
+        // إجابات تمرين المفردات
+        const vocabularyAnswers = {
+            q1: '1', // مملوء ومليء
+            q2: '1', // نماذج وأمثلة
+            q3: '1', // حفظ وحماية
+            q4: '1'  // الخاص بالوطن
+        };
+        
+        // إجابات تمرين المرادفات والمتضادات
+        const synonymAnswers = {
+            synonym1: 'مُشْرِقَةٍ',
+            antonym1: 'الْخِصْب',
+            synonym2: 'الْفَارِس',
+            antonym2: 'الْخَوْف'
+        };
+        
+        // إجابات تمرين الجمع والمفرد
+        const pluralAnswers = {
+            ps1: 'الشَّهِيد',
+            ps2: 'الْأَبْطَال',
+            ps3: 'التَّمْثَال',
+            ps4: 'الْحُصُون'
+        };
+        
+        // متغيرات لتتبع النتائج
+        let vocabularyScore = 0;
+        let synonymScore = 0;
+        let pluralScore = 0;
+        let totalScore = 0;
+        
+        // تمرين المفردات
+        function submitVocabularyExercise() {
+            let correctCount = 0;
+            let feedbackHTML = '<h4>نتيجة تمرين المفردات:</h4><ul>';
+            
+            for (const [question, correctAnswer] of Object.entries(vocabularyAnswers)) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                
+                if (selected && selected.value === correctAnswer) {
+                    correctCount++;
+                    feedbackHTML += `<li>✅ سؤال ${question.replace('q', '')}: إجابة صحيحة!</li>`;
+                } else {
+                    feedbackHTML += `<li>❌ سؤال ${question.replace('q', '')}: الإجابة الصحيحة هي "${getVocabularyCorrectAnswer(correctAnswer, question)}"</li>`;
+                }
+            }
+            
+            vocabularyScore = correctCount * 2.5; // كل إجابة = 2.5 نقطة
+            feedbackHTML += `</ul><p><strong>الدرجة: ${correctCount}/4 (${vocabularyScore.toFixed(1)} نقطة)</strong></p>`;
+            
+            const feedbackDiv = document.getElementById('vocabulary-feedback');
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.className = correctCount === 4 ? 'feedback correct' : 'feedback incorrect';
+            feedbackDiv.classList.remove('hidden');
+            
+            updateTotalScore();
+        }
+        
+        function getVocabularyCorrectAnswer(value, question) {
+            const answers = {
+                '1': { 
+                    q1: 'مملوء ومليء', 
+                    q2: 'نماذج وأمثلة', 
+                    q3: 'حفظ وحماية', 
+                    q4: 'الخاص بالوطن' 
+                },
+                '2': { 
+                    q1: 'فارغ وخالٍ', 
+                    q2: 'أشخاص عاديين', 
+                    q3: 'تخريب وتهديم', 
+                    q4: 'الخاص بالأجانب' 
+                },
+                '3': { 
+                    q1: 'كبير وعظيم', 
+                    q2: 'أماكن وأوطان', 
+                    q3: 'بيع وشراء', 
+                    q4: 'الخاص بالعائلة' 
+                }
+            };
+            return answers[value][question];
+        }
+        
+        // تمرين المرادفات والمتضادات
+        let selectedSynonyms = {};
+        let selectedAntonyms = {};
+        
+        function selectSynonym(button, answer) {
+            const question = button.closest('.sa-question');
+            const allButtons = question.querySelectorAll('.sa-option');
+            
+            allButtons.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            button.classList.add('selected');
+            selectedSynonyms[question.querySelector('p').textContent] = answer;
+        }
+        
+        function selectAntonym(button, answer) {
+            const question = button.closest('.sa-question');
+            const allButtons = question.querySelectorAll('.sa-option');
+            
+            allButtons.forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            button.classList.add('selected');
+            selectedAntonyms[question.querySelector('p').textContent] = answer;
+        }
+        
+        function submitSynonymExercise() {
+            let correctCount = 0;
+            let feedbackHTML = '<h4>نتيجة تمرين المرادفات والمتضادات:</h4><ul>';
+            
+            // تحقق من المرادفات
+            const questions = document.querySelectorAll('.sa-question');
+            questions.forEach((question, index) => {
+                const questionText = question.querySelector('p').textContent;
+                const selectedAnswer = question.querySelector('.sa-option.selected');
+                
+                if (selectedAnswer) {
+                    const userAnswer = selectedAnswer.textContent;
+                    let isCorrect = false;
+                    let correctAnswer = '';
+                    
+                    if (questionText.includes('المرادف')) {
+                        const correctSynonym = synonymAnswers[`synonym${index < 2 ? index + 1 : index - 1}`];
+                        isCorrect = userAnswer === correctSynonym;
+                        correctAnswer = correctSynonym;
+                    } else {
+                        const correctAntonym = synonymAnswers[`antonym${index < 2 ? index + 1 : index - 1}`];
+                        isCorrect = userAnswer === correctAntonym;
+                        correctAnswer = correctAntonym;
+                    }
+                    
+                    if (isCorrect) {
+                        correctCount++;
+                        feedbackHTML += `<li>✅ إجابة صحيحة!</li>`;
+                    } else {
+                        feedbackHTML += `<li>❌ الإجابة الصحيحة هي "${correctAnswer}"</li>`;
+                    }
+                } else {
+                    feedbackHTML += `<li>❌ لم تختر إجابة</li>`;
+                }
+            });
+            
+            synonymScore = correctCount * 3.75; // كل إجابة = 3.75 نقطة
+            feedbackHTML += `</ul><p><strong>الدرجة: ${correctCount}/4 (${synonymScore.toFixed(1)} نقطة)</strong></p>`;
+            
+            const feedbackDiv = document.getElementById('synonym-feedback');
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.className = correctCount === 4 ? 'feedback correct' : 'feedback incorrect';
+            feedbackDiv.classList.remove('hidden');
+            
+            updateTotalScore();
+        }
+        
+        // تمرين الجمع والمفرد
+        function submitPluralExercise() {
+            let correctCount = 0;
+            let feedbackHTML = '<h4>نتيجة تمرين الجمع والمفرد:</h4><ul>';
+            
+            for (const [question, correctAnswer] of Object.entries(pluralAnswers)) {
+                const userAnswer = document.getElementById(question).value.trim();
+                
+                if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                    correctCount++;
+                    feedbackHTML += `<li>✅ إجابة صحيحة!</li>`;
+                } else {
+                    feedbackHTML += `<li>❌ الإجابة الصحيحة هي "${correctAnswer}"</li>`;
+                }
+            }
+            
+            pluralScore = correctCount * 5; // كل إجابة = 5 نقاط
+            feedbackHTML += `</ul><p><strong>الدرجة: ${correctCount}/4 (${pluralScore.toFixed(1)} نقطة)</strong></p>`;
+            
+            const feedbackDiv = document.getElementById('plural-feedback');
+            feedbackDiv.innerHTML = feedbackHTML;
+            feedbackDiv.className = correctCount === 4 ? 'feedback correct' : 'feedback incorrect';
+            feedbackDiv.classList.remove('hidden');
+            
+            updateTotalScore();
+        }
+        
+        // تحديث النتيجة الكلية
+        function updateTotalScore() {
+            totalScore = vocabularyScore + synonymScore + pluralScore;
+            const correctAnswers = (vocabularyScore / 2.5) + (synonymScore / 3.75) + (pluralScore / 5);
+            const percentage = Math.round((totalScore / 45) * 100);
+            
+            document.getElementById('total-score').textContent = totalScore.toFixed(1);
+            document.getElementById('correct-answers').textContent = Math.round(correctAnswers);
+            document.getElementById('percentage').textContent = `${percentage}%`;
+        }
+        
+        // إعادة تعيين التمارين
+        function resetExercises() {
+            // إعادة تعيين اختيارات المفردات
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+            
+            // إعادة تعيين اختيارات المرادفات
+            document.querySelectorAll('.sa-option.selected').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // إعادة تعيين حقول الجمع والمفرد
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                input.value = '';
+            });
+            
+            // إعادة تعيين التغذية الراجعة
+            document.querySelectorAll('.feedback').forEach(feedback => {
+                feedback.classList.add('hidden');
+                feedback.innerHTML = '';
+            });
+            
+            // إعادة تعيين النتائج
+            vocabularyScore = 0;
+            synonymScore = 0;
+            pluralScore = 0;
+            updateTotalScore();
+            
+            // إعادة تعيين المتغيرات
+            selectedSynonyms = {};
+            selectedAntonyms = {};
+        }
+        
+        // حفظ التقدم
+        function saveProgress() {
+            const percentage = Math.round((totalScore / 45) * 100);
+            const exerciseProgress = Math.min(100, percentage * 0.8); // 80% من النسبة
+            
+            localStorage.setItem('vocabulary-exercise-score', totalScore.toFixed(1));
+            localStorage.setItem('vocabulary-exercise-progress', exerciseProgress.toString());
+            
+            alert(`تم حفظ نتائجك بنجاح!\n\nالنتيجة: ${totalScore.toFixed(1)}/45 نقطة\nالنسبة: ${percentage}%\n\nتم حفظ التقدم في التمارين.`);
+        }
+        
+        // تحميل النتائج المحفوظة عند بدء الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedScore = localStorage.getItem('vocabulary-exercise-score') || '0';
+            const savedProgress = localStorage.getItem('vocabulary-exercise-progress') || '0';
+            
+            document.getElementById('total-score').textContent = savedScore;
+            document.getElementById('percentage').textContent = `${savedProgress}%`;
+            
+            // حساب الإجابات الصحيحة من النتيجة
+            const score = parseFloat(savedScore);
+            const correctAnswers = Math.round(score / 2.5); // تقدير تقريبي
+            document.getElementById('correct-answers').textContent = correctAnswers;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+/* ملف أنماط خاص بالتمارين التفاعلية */
+
+/* تحسينات عامة للتمارين */
+.exercise-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    transition: var(--transition);
+}
+
+.exercise-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.exercise-header {
+    background: linear-gradient(135deg, var(--primary-color), #2D4FA8);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exercise-header h2, 
+.exercise-header h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.exercise-points {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: bold;
+    backdrop-filter: blur(10px);
+}
+
+/* تمارين الاختيار من متعدد */
+.mc-question {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+}
+
+.mc-question:last-child {
+    margin-bottom: 0;
+}
+
+.mc-question p {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.mc-options {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.mc-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.mc-option:hover {
+    border-color: var(--primary-color);
+    background: #f0f9ff;
+}
+
+.mc-option.selected {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+}
+
+.mc-option input[type="radio"],
+.mc-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+/* تمارين ملء الفراغات */
+.fill-blank-exercise {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.blank-question {
+    margin-bottom: 1.5rem;
+}
+
+.blank-question:last-child {
+    margin-bottom: 0;
+}
+
+.blank-question p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.blank-input {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.blank-input input {
+    width: 150px;
+    padding: 0.5rem 1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    transition: var(--transition);
+}
+
+.blank-input input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.blank-input.correct input {
+    border-color: #10b981;
+    background: #d1fae5;
+}
+
+.blank-input.incorrect input {
+    border-color: #ef4444;
+    background: #fee2e2;
+}
+
+/* تمارين التوصيل */
+.matching-exercise {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.matching-left,
+.matching-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.matching-item {
+    padding: 1rem 1.5rem;
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: move;
+    user-select: none;
+    text-align: center;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.matching-item:hover {
+    border-color: var(--primary-color);
+    background: #f0f9ff;
+}
+
+.matching-item.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.matching-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9ca3af;
+}
+
+.matching-line {
+    width: 2px;
+    height: 100%;
+    background: #d1d5db;
+    margin: 1rem 0;
+}
+
+/* تمارين الترتيب */
+.ordering-exercise {
+    background: #f8fafc;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 300px;
+}
+
+.order-item {
+    background: white;
+    padding: 1.5rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: move;
+    user-select: none;
+    transition: var(--transition);
+}
+
+.order-item:hover {
+    border-color: var(--primary-color);
+    background: #f0f9ff;
+}
+
+.order-item.dragging {
+    opacity: 0.5;
+}
+
+.order-number {
+    background: var(--primary-color);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.order-text {
+    flex: 1;
+    font-size: 1.1rem;
+}
+
+.order-handle {
+    color: #9ca3af;
+    font-size: 1.2rem;
+    cursor: move;
+    padding: 0.5rem;
+}
+
+/* أزرار التحكم في التمارين */
+.exercise-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.control-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.control-btn.primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.control-btn.primary:hover {
+    background: #2D4FA8;
+    transform: translateY(-2px);
+}
+
+.control-btn.secondary {
+    background: #f3f4f6;
+    color: var(--dark-color);
+    border: 1px solid #d1d5db;
+}
+
+.control-btn.secondary:hover {
+    background: #e5e7eb;
+}
+
+/* مؤشر التقدم في التمرين */
+.exercise-progress {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.progress-bar-container {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+/* مؤقت التمرين */
+.exercise-timer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 1rem;
+    background: #fffbeb;
+    border-radius: 8px;
+    border: 1px solid #fbbf24;
+    margin-bottom: 1rem;
+}
+
+.timer-icon {
+    color: #f59e0b;
+    font-size: 1.5rem;
+}
+
+.timer-text {
+    flex: 1;
+}
+
+.timer-time {
+    font-weight: bold;
+    color: #d97706;
+    font-size: 1.2rem;
+}
+
+/* شارات الإنجاز */
+.achievement-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.achievement-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.75rem 1.5rem;
+    background: #f0f9ff;
+    border-radius: 20px;
+    border: 1px solid #bae6fd;
+}
+
+.badge-icon {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.badge-text {
+    font-weight: 500;
+    color: #0369a1;
+}
+
+/* أنماط الطباعة */
+@media print {
+    .exercise-controls,
+    .exercise-timer,
+    .achievement-badges {
+        display: none !important;
+    }
+    
+    .exercise-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+    
+    .mc-option {
+        border: 1px solid #ccc;
+    }
+}
+
+/* التكيف مع الشاشات الصغيرة */
+@media (max-width: 768px) {
+    .matching-exercise {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    
+    .matching-connector {
+        display: none;
+    }
+    
+    .matching-left,
+    .matching-right {
+        grid-column: 1;
+    }
+    
+    .matching-right {
+        grid-row: 3;
+    }
+    
+    .exercise-controls {
+        flex-direction: column;
+    }
+    
+    .control-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* رسوم متحركة للتمارين */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* فئات للرسوم المتحركة */
+.pulse-animation {
+    animation: pulse 0.5s ease;
+}
+
+.shake-animation {
+    animation: shake 0.5s ease;
+}
+
+.bounce-animation {
+    animation: bounce 0.5s ease;
+}
+
+/* تأثيرات للعناصر التفاعلية */
+.interactive-element {
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-element::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.interactive-element:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* تلميحات التمارين */
+.exercise-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.exercise-tooltip .tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+}
+
+.exercise-tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+.exercise-tooltip .tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark-color) transparent transparent transparent;
+}
