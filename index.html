@@ -2,13 +2,66 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حماية الوطن - الوحدة الأولى - الصف الثاني الإعدادي</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>طلاب الأستاذة إسلام - الصف الأول الإعدادي</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* تحسينات إضافية للجوال */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-color);
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: white;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+                z-index: 1000;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                width: 100%;
+                margin: 0;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            
+            .nav-menu li:last-child {
+                border-bottom: none;
+            }
+            
+            .nav-menu a {
+                padding: 15px 20px;
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- شريط التنقل -->
@@ -16,9 +69,12 @@
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-shield-alt"></i>
-                <h1>حماية الوطن</h1>
+                <h1>طلاب الأستاذة إسلام</h1>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
                 <li><a href="#lessons"><i class="fas fa-book"></i> الدروس</a></li>
                 <li><a href="#exercises"><i class="fas fa-pen"></i> التمارين</a></li>
@@ -41,8 +97,8 @@
     <main class="main-content">
         <section class="hero-section">
             <div class="hero-content">
-                <h2>الوحدة الأولى: حماية الوطن</h2>
-                <p>تطبيق تعليمي تفاعلي للصف الثاني الإعدادي</p>
+                <h2>طلاب الأستاذة إسلام</h2>
+                <p>تطبيق تعليمي تفاعلي للصف الأول الإعدادي</p>
                 <div class="hero-stats">
                     <div class="stat-card">
                         <i class="fas fa-book-open"></i>
@@ -212,8 +268,8 @@
     <footer id="about" class="footer">
         <div class="footer-container">
             <div class="footer-about">
-                <h3><i class="fas fa-shield-alt"></i> حماية الوطن</h3>
-                <p>تطبيق تعليمي تفاعلي للصف الثاني الإعدادي - الوحدة الأولى، يهدف إلى تقديم المادة التعليمية بطريقة شيقة وجذابة مع الالتزام التام بمحتوى الكتاب المدرسي.</p>
+                <h3><i class="fas fa-shield-alt"></i> طلاب الأستاذة إسلام</h3>
+                <p>تطبيق تعليمي تفاعلي للصف الأول الإعدادي، يهدف إلى تقديم المادة التعليمية بطريقة شيقة وجذابة مع الالتزام التام بمحتوى الكتاب المدرسي.</p>
             </div>
             <div class="footer-links">
                 <h4>روابط سريعة</h4>
@@ -225,15 +281,208 @@
             </div>
             <div class="footer-contact">
                 <h4>معلومات التواصل</h4>
-                <p>تم إعداد التطبيق بناءً على المنهج الرسمي للصف الثاني الإعدادي</p>
+                <p>تم إعداد التطبيق بناءً على المنهج الرسمي للصف الأول الإعدادي</p>
                 <p>تحت إشراف: الأستاذة إسلام محمد</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2023 تطبيق حماية الوطن - الوحدة الأولى. جميع الحقوق محفوظة.</p>
+            <p>© 2026 تطبيق طلاب الأستاذة إسلام. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // تحسينات للجوال
+        document.addEventListener('DOMContentLoaded', function() {
+            // قائمة الهاتف
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    navMenu.classList.toggle('active');
+                    menuToggle.innerHTML = navMenu.classList.contains('active') 
+                        ? '<i class="fas fa-times"></i>' 
+                        : '<i class="fas fa-bars"></i>';
+                });
+                
+                // إغلاق القائمة عند النقر على رابط
+                document.querySelectorAll('.nav-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    });
+                });
+                
+                // إغلاق القائمة عند النقر خارجها
+                document.addEventListener('click', function(e) {
+                    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                });
+            }
+            
+            // تحسين التمرير على الهاتف
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId !== '#' && targetId !== '#0') {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            // إغلاق القائمة إذا كانت مفتوحة
+                            if (navMenu && navMenu.classList.contains('active')) {
+                                navMenu.classList.remove('active');
+                                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                            }
+                            
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // تحسين حجم الخط على الهواتف
+            if (window.innerWidth <= 480) {
+                document.body.style.fontSize = '15px';
+            }
+            
+            // تحسين تجربة اللمس
+            document.querySelectorAll('button, a').forEach(element => {
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                element.addEventListener('touchend', function() {
+                    this.style.transform = 'scale(1)';
+                });
+                
+                element.addEventListener('touchcancel', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // منع تكبير النص على iOS
+            document.addEventListener('touchstart', function() {}, {passive: true});
+            
+            // التعامل مع تغيير اتجاه الشاشة
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+            
+            window.addEventListener('resize', () => {
+                vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            });
+            
+            // تحسين تقدم الدرس على الهواتف
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.progress-bar').forEach(bar => {
+                    bar.style.height = '8px';
+                });
+                
+                document.querySelectorAll('.progress-fill').forEach(fill => {
+                    fill.style.height = '8px';
+                });
+            }
+            
+            // إضافة شاشة تحميل للموبايل
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/sw.js').catch(() => {
+                        // إذا فشل تسجيل Service Worker، لا تفعل شيء
+                    });
+                });
+            }
+            
+            // تحسين الأداء على الأجهزة القديمة
+            if ('IntersectionObserver' in window) {
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.src;
+                            img.classList.add('loaded');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(img => imageObserver.observe(img));
+            }
+        });
+        
+        // تحسين أداء التمرير
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    // تحديث الأنماط أو الأحداث المرتبطة بالتمرير هنا
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+        
+        // تحسين عرض الصور على مختلف الأجهزة
+        function optimizeImages() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // إضافة تحميل كسول للصور
+                if (!img.hasAttribute('loading')) {
+                    img.setAttribute('loading', 'lazy');
+                }
+                
+                // تحسين حجم الصور للهواتف
+                if (window.innerWidth <= 768) {
+                    const src = img.src;
+                    if (src && !src.includes('w=')) {
+                        // يمكن إضافة منطق لتحميل صور بحجم أصغر للهواتف
+                    }
+                }
+            });
+        }
+        
+        // استدعاء التحسينات بعد تحميل الصفحة
+        window.addEventListener('load', optimizeImages);
+        
+        // التعامل مع اتصال الشبكة
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        
+        function updateOnlineStatus() {
+            const isOnline = navigator.onLine;
+            if (!isOnline) {
+                // عرض رسالة عدم اتصال بالشبكة
+                const offlineMessage = document.createElement('div');
+                offlineMessage.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    left: 0;
+                    background: #ef4444;
+                    color: white;
+                    text-align: center;
+                    padding: 10px;
+                    z-index: 9999;
+                    font-family: 'Cairo', sans-serif;
+                `;
+                offlineMessage.textContent = '⚠️ أنت غير متصل بالإنترنت. يرجى التحقق من اتصالك.';
+                document.body.appendChild(offlineMessage);
+                
+                setTimeout(() => {
+                    if (offlineMessage.parentNode) {
+                        offlineMessage.parentNode.removeChild(offlineMessage);
+                    }
+                }, 5000);
+            }
+        }
+    </script>
 </body>
 </html>

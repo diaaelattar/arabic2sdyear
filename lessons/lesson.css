@@ -979,6 +979,287 @@
     .lesson-actions {
         flex-direction: column;
     }
+    
+    /* تحسينات إضافية للجوال */
+    .lesson-header {
+        padding: 20px 15px;
+        margin: -15px -15px 20px -15px;
+    }
+    
+    .lesson-title {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: 15px;
+    }
+    
+    .lesson-meta {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+    }
+    
+    /* تحسين النص العربي */
+    .arabic-text {
+        font-size: 18px;
+        line-height: 1.8;
+    }
+    
+    .text-paragraph {
+        margin-bottom: 20px;
+    }
+    
+    /* تحسين المفردات */
+    .vocabulary-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .vocab-item {
+        padding: 15px;
+    }
+    
+    /* تحسين أنواع الوعي الوطني */
+    .qualities-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .quality-card {
+        padding: 20px;
+    }
+    
+    /* تحسين التمارين */
+    .exercise-card {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .exercise-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .word-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .options {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .option {
+        margin: 5px 0;
+        padding: 12px;
+        width: 100%;
+    }
+    
+    /* تحسين السحب والإفلات */
+    .drag-drop-exercise {
+        flex-direction: column;
+    }
+    
+    .traits-container, .drop-zones {
+        width: 100%;
+    }
+    
+    .trait, .drop-zone {
+        padding: 15px;
+        margin: 8px 0;
+    }
+    
+    /* تحسين الاختبار */
+    .test-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .stat {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .test-instructions ul {
+        padding-right: 20px;
+    }
+    
+    /* تحسين خاتمة الدرس */
+    .lesson-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn, .btn-outline {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* تحسين التذييل */
+    .lesson-footer {
+        padding: 20px 15px;
+        margin: 0 -15px -15px -15px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* تحسينات إضافية للشاشات الصغيرة */
+    .lesson-title {
+        font-size: 20px;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .audio-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .text-container {
+        flex-direction: column;
+    }
+    
+    .hero-image {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+    
+    /* تحسين جداول الهواتف */
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+        display: block;
+        width: 100%;
+    }
+    
+    tr {
+        margin-bottom: 10px;
+        display: block;
+    }
+    
+    /* تحسين إدخال النص */
+    input[type="text"], textarea {
+        font-size: 16px;
+        padding: 14px;
+    }
+    
+    /* تحسين الأزرار التفاعلية */
+    .check-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 16px;
+    }
+    
+    /* تحسينات إضافية للشاشات الصغيرة */
+    .hero-content h2 {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    /* تحسين الأزرار للحصول على مساحة لمس كافية */
+    button, .btn, .btn-outline, .check-btn, .audio-btn {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    /* تحسين حقول الإدخال */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+        font-size: 16px;
+        padding: 14px;
+        margin: 8px 0;
+    }
+    
+    /* تحسين الجداول */
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+    }
+    
+    /* تحسين التمرير على الهاتف */
+    .table-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* تحسينات اللمس للهواتف */
+@media (hover: none) and (pointer: coarse) {
+    button, .btn, .btn-outline, .check-btn, .audio-btn {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    .option label, .options-group label {
+        padding: 15px;
+        margin: 5px 0;
+    }
+    
+    input[type="radio"], input[type="checkbox"] {
+        width: 24px;
+        height: 24px;
+    }
+    
+    /* تحسين المسافة بين العناصر */
+    .exercise-card, .quality-card, .vocab-item {
+        margin-bottom: 15px;
+    }
+    
+    /* تحسين التمرير */
+    .lesson-content {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* منع تحديد النص باللمس المطول */
+* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* السماح بتحديد النص في مناطق الإدخال */
+input, textarea, [contenteditable="true"] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
 }
 
 /* طباعة */
@@ -1013,4 +1294,45 @@
     .exercise-card {
         border: 1px solid #ccc;
     }
+}
+
+/* تحسينات عامة للهواتف */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* منع التكبير التلقائي في حقول الإدخال على iOS */
+input, textarea, select {
+    font-size: 16px !important;
+}
+
+/* تحسين شريط التقدم للشاشات الصغيرة */
+.progress-bar {
+    height: 10px;
+}
+
+.progress-fill {
+    height: 10px;
+}
+
+/* السماح بنسخ النص من المناطق التعليمية */
+.arabic-text,
+.reading-text,
+.vocab-item,
+.lesson-text-section,
+.text-paragraph {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+/* تحسين التمرير على الهاتف */
+.lesson-content {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* تحسين اللمس على iOS */
+button, a, input, select, textarea {
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
 }

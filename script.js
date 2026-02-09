@@ -155,3 +155,49 @@ class QuizManager {
 
 // إنشاء مثيل من مدير الاختبارات
 const quizManager = new QuizManager();
+
+// أضف هذه الدوال لتحسين تجربة الجوال
+function initMobileOptimizations() {
+    // منع التكبير المزدوج على iOS
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(event) {
+        const now = (new Date()).getTime();
+        if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+        }
+        lastTouchEnd = now;
+    }, false);
+    
+    // تحسين تجربة اللمس للأزرار
+    const buttons = document.querySelectorAll('button, .btn, .btn-outline, .check-btn');
+    buttons.forEach(button => {
+        button.addEventListener('touchstart', function() {
+            this.style.opacity = '0.8';
+        });
+        
+        button.addEventListener('touchend', function() {
+            this.style.opacity = '1';
+        });
+    });
+    
+    // تحسين تجربة الإدخال
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            // تأخير التمرير قليلاً للسماح بفتح لوحة المفاتيح
+            setTimeout(() => {
+                this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
+        });
+    });
+    
+    // تحسين شريط التقدم للشاشات الصغيرة
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.progress-bar').forEach(bar => {
+            bar.style.height = '10px';
+        });
+    }
+}
+
+// استدعاء التحسينات عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', initMobileOptimizations);

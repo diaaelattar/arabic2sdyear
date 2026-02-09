@@ -489,3 +489,181 @@ body {
         font-size: 1.5rem;
     }
 }
+/* تحسينات للهواتف المحمولة */
+@media screen and (max-width: 768px) {
+    /* تحسين شريط التنقل */
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+    
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #333;
+        cursor: pointer;
+    }
+    
+    .nav-menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        margin-top: 15px;
+        padding: 0;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .user-profile {
+        width: 100%;
+        margin-top: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* تحسين المحتوى الرئيسي */
+    .hero-section {
+        padding: 20px 15px;
+    }
+    
+    .hero-content h2 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+    
+    .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .stat-card {
+        width: 100%;
+        padding: 20px;
+    }
+    
+    /* تحسين بطاقات الدروس */
+    .lessons-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .lesson-card {
+        padding: 20px;
+    }
+    
+    /* تحسين قسم التمارين */
+    .exercises-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .exercise-category {
+        padding: 20px;
+    }
+    
+    /* تحسين الاختبارات */
+    .tests-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .test-card {
+        padding: 20px;
+    }
+    
+    /* تحسين التذييل */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    /* تحسين الأزرار */
+    .btn, .btn-outline {
+        width: 100%;
+        text-align: center;
+        padding: 14px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* تحسينات إضافية للشاشات الصغيرة */
+    .hero-content h2 {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    /* تحسين الأزرار للحصول على مساحة لمس كافية */
+    button, .btn, .btn-outline, .check-btn, .audio-btn {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    /* تحسين حقول الإدخال */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+        font-size: 16px;
+        padding: 14px;
+        margin: 8px 0;
+    }
+    
+    /* تحسين الجداول */
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+    }
+}
+
+/* تحسينات عامة للهواتف */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* منع التكبير التلقائي في حقول الإدخال على iOS */
+input, textarea, select {
+    font-size: 16px !important;
+}
+
+/* تحسين شريط التقدم للشاشات الصغيرة */
+.progress-bar {
+    height: 10px;
+}
+
+.progress-fill {
+    height: 10px;
+}
